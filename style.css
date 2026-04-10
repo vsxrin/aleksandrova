@@ -1,0 +1,138 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background: #fff;
+  overflow: hidden;
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif
+}
+
+.layout {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* CENTER ROW */
+.center-row {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  display: flex;
+  pointer-events: auto; 
+  z-index: 100;
+  transition: opacity 0.5s ease, visibility 0.5s;
+}
+
+.center-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.center-item a, .center-item img {
+  pointer-events: auto;
+}
+
+.center-item.name img {
+  max-width: 300px;
+  height: auto;
+}
+
+.center-item a {
+  font-size: 12px;
+  text-decoration: none;
+  color: black;
+  letter-spacing: 0.1em;
+}
+
+/* --- IMAGES SECTION --- */
+.random-image, .image-container img {
+  position: absolute;
+  width: 200px; 
+  height: auto;
+  cursor: pointer;
+  transition: opacity 0.5s ease, visibility 0.5s, transform 0.3s ease;
+}
+
+.random-image:hover { 
+  transform: scale(1.05); 
+  z-index: 11;
+}
+
+.random-image.active {
+  z-index: 12;
+  transform: scale(1.1);
+}
+
+/* UNIVERSAL HIDDEN STATE */
+.hidden {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+.active {
+  z-index: 100;
+}
+
+/* Unclickable child images so they act as background */
+
+
+/* Styling for project text blocks */
+.project-desc {
+  position: absolute;
+  width: 300px; /* Slightly wider than images */
+  background: rgba(255, 255, 255, 0.8); /* Slight transparency */
+  padding: 15px;
+  font-size: 12px;
+  line-height: 1.4;
+  pointer-events: auto !important; /* Make text clickable/selectable */
+  z-index: 5;
+  font-family: Arial, sans-serif;
+  height: auto;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+}
+
+.project-desc:hover{
+  transform: scale(1.02) !important;
+}
+
+/* THE HOVER TRICK */
+.image-container img, .project-desc {
+  transition: opacity 0.3s ease, transform 0.3s ease, z-index 0s;
+}
+
+/* When hovering ANY image or text in the container */
+.image-container img:hover, .project-desc:hover {
+  opacity: 1 !important; /* Force full visibility */
+  z-index: 999 !important; /* Jump to the very front */
+  transform: scale(1.3); /* Slight pop */
+}
+
+p, h1{
+  font-family: Arial, Helvetica, sans-serif
+}
+
+.fixed-center {
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  text-align: center; /* Optional: centers the text inside the box */
+  width: 400px; /* Optional: makes these specific boxes a bit wider */
+}
+
+/* Optional: remove the hover pop effect for these centered panels */
+.fixed-center:hover {
+  transform: translate(-50%, -50%) !important; 
+}
