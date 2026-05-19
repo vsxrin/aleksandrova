@@ -117,7 +117,7 @@ body {
 .image-container img:hover, .project-desc:hover {
   opacity: 1 !important; /* Force full visibility */
   z-index: 999 !important; /* Jump to the very front */
-  transform: scale(1.3); /* Slight pop */
+  transform: scale(2); /* Slight pop */
 }
 
 p, h1{
